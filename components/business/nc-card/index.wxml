@@ -1,0 +1,22 @@
+<!--components/card/card.wxml-->
+<view class='nc-card container'>
+  <view class='nc-card__top container container--row container--start container--no-stretch'>
+    <image class='avatar' src='{{pic}}'></image>
+    <view class='info-box flex-1'>
+      <view class='title' style='color: {{color ? color : "#04a4d9"}}'>{{title}}</view>
+      <view class='desc'>{{desc}}</view>
+    </view>
+  </view>
+  <view class='nc-card__bottom container container--center full'>
+    <view class='little-box container container--row' style='color: {{color ? color : "#04a4d9"}}'>
+      <view class='little-box__item flex-1 tc container container--row container--center' data-phone='{{phone}}' catchtap='makePhone'>
+        <van-icon name="phone" size="14px" />
+        <text class='explain'>电话咨询</text>
+      </view>
+      <view class='little-box__item flex-1 tc container container--row container--center' data-img='{{pic}}' catchtap='previewImg'>
+        <van-icon name="photo" size="14px" />
+        <text class='explain'>图片展示</text>
+      </view>
+    </view>
+  </view>
+</view>

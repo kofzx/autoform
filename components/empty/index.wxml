@@ -1,0 +1,5 @@
+<!--components/empty/empty.wxml-->
+<view class="empty-box custom-class">
+		<image class='empty-box__pic' src="{{pic}}" wx:if='{{pic}}'></image>
+		<view class='empty-box__txt'>{{tips}}</view>
+</view>

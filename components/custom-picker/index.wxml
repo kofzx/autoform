@@ -1,0 +1,29 @@
+<!--components/custom-picker/index.wxml-->
+<!-- custom selector -->
+<view 
+  class="custom-class ko-selector ko-transition {{pickerShow ? 'ko--slide-in-up' : 'ko--slide-out-down'}}">
+  <picker-view
+    class='picker-view' 
+    indicator-class='ko--selected'
+    value='{{value}}' 
+    bindchange='pickerChange'>
+    <block
+      wx:for='{{data}}'
+      wx:for-item='parent'
+      wx:key="wx:key">
+      <picker-view-column>
+        <view 
+          wx:for='{{parent}}'
+          wx:for-item='child'
+          wx:key="wx:key"
+          class='item'>{{child[fieldName]}}</view>
+      </picker-view-column>
+    </block>
+  </picker-view>
+  <text class='confirm' bindtap='closePicker'>确定</text>
+</view>  
+<!-- layer -->
+<layer
+  show='{{pickerShow}}'
+  custom-class='layer'
+  bind:close="closePicker" />

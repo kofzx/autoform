@@ -1,0 +1,28 @@
+<!--components/noticeBar/index.wxml-->
+<swiper
+    autoplay="{{true}}"
+    vertical="{{true}}"
+    circular="{{true}}"
+    interval="2000"
+    duration="500"
+    class="swiper"
+>
+    <block 
+        wx:for="{{noticeList}}"
+        wx:key="wx:key"
+    >
+        <swiper-item class="swiper-item">
+            <view 
+                wx:if="{{isLink}}"
+                data-url="{{url}}"
+                data-query="{{query}}"
+                bindtap="routeTo"
+                class="swiper-item__text text-overflow"
+            >{{item[fieldName]}}</view>
+            <view 
+                wx:else
+                class="swiper-item__text text-overflow"
+            >{{item[fieldName]}}</view>
+        </swiper-item>
+    </block>
+</swiper>

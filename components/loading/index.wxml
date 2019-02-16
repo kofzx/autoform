@@ -1,0 +1,46 @@
+<!--components/loading/loading.wxml-->
+<view hidden='{{!isLoad}}' class="loading">
+  <block wx:if='{{type === "line"}}'>
+    <view class="loading__line-dot custom-class" wx:for="{{[1,2,3]}}" wx:key="item"></view>
+  </block>
+  <block wx:elif='{{type === "fade"}}'>
+    <view class='loading__fade-dot custom-class'></view>
+  </block>
+  <block wx:elif='{{type === "rotate"}}'>
+    <view class="loading__rotate custom-class">
+      <view class="loading__rotate-container container1">
+        <view class="circle1 circle"></view>
+        <view class="circle2 circle"></view>
+        <view class="circle3 circle"></view>
+        <view class="circle4 circle"></view>
+      </view>
+      <view class="loading__rotate-container container2">
+        <view class="circle1 circle"></view>
+        <view class="circle2 circle"></view>
+        <view class="circle3 circle"></view>
+        <view class="circle4 circle"></view>
+      </view>
+      <view class="loading__rotate-container container3">
+        <view class="circle1 circle"></view>
+        <view class="circle2 circle"></view>
+        <view class="circle3 circle"></view>
+        <view class="circle4 circle"></view>
+      </view>
+    </view>
+  </block>
+  <block wx:elif='{{type === "rotate3d"}}'>
+    <view class="loading__rotate3d custom-class">
+      <view class="dot1"></view>
+      <view class="dot2"></view>
+    </view>
+  </block>
+  <block wx:elif='{{type === "doubleFade"}}'>
+    <view class="loading__doubleFade custom-class">
+      <view class="bounce1"></view>
+      <view class="bounce2"></view>
+    </view>
+  </block>
+</view>
+<view hidden='{{!noMore}}' class="weui-loadmore weui-loadmore_line">
+  <view class="weui-loadmore__tips weui-loadmore__tips_in-line">没有更多了o(╥﹏╥)o</view>
+</view>

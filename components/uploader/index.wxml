@@ -1,0 +1,21 @@
+<!--components/uploader/index.wxml-->
+<view class="upload-group">
+  <view class='upload-add' bindtap='uploadFiles'>
+    <view class='v'></view>
+    <view class='h'></view>
+  </view>
+  <block 
+  	wx:for="{{uploadPics}}" 
+  	wx:key="wx:key">
+    <view class='up-box'>
+      <image 
+      	src='{{item}}'
+      	class="pic"></image>
+      <image 
+      	src='../common/images/close.png' 
+      	class='close' 
+      	data-index='{{index}}' 
+      	bindtap='delImg'></image>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,59 @@
+/* form-group */
+.form-group {
+  background: white;
+  padding: 0 18rpx;
+}
+.input-group,
+.textarea-group {
+  border-bottom: 1px solid #F8F8F8;
+  /* flex */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items:center;
+  box-sizing:border-box;
+}
+.input-group {
+  height: 76rpx;
+}
+.textarea-group {
+  margin-top: 10rpx;
+}
+.input-group .title,
+.textarea-group .title {
+  font-weight: 500;
+}
+.textarea-group .title {
+  align-self: flex-start;
+}
+.input-group .input,
+.textarea-group .textarea {
+  margin: 0 18rpx;
+  flex: 1;
+  height: 156rpx;
+  padding-top: 4rpx;
+}
+.input-group .input {
+  height: 100%;
+  line-height: 76rpx;
+}
+.radio-group,
+.checkbox-group {
+  margin: 0 18rpx;
+  position: relative;
+  top: 2px;
+}
+.upload-group {
+  margin-top: 30rpx;
+  /* flex */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items:center;
+  box-sizing:border-box;
+}
+.upload-group > view {
+  margin-right: 24rpx;
+  margin-bottom: 20rpx;
+}

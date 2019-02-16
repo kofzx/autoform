@@ -1,0 +1,105 @@
+/* 
+ *  工具类
+ */
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+    font-size: 0;
+}
+/* 纵横居中对齐 */
+.vh-center {
+  position: absolute;
+    top: 50%;
+    left: 50%;
+  -webkit-transform: translate3d(-50%,-50%,0);
+          transform: translate3d(-50%,-50%,0);
+}
+/* 浮动 */
+.fl {float: left} .fr {float: right}
+/* 显示、隐藏 */
+.show {display: block !important;}
+.hide {display: none !important;}
+.inb {display: inline-block;}
+/* 文字对齐方式 */
+.tc{text-align:center;}.tl{text-align:left;}.tr{text-align:right;}
+/* 常用颜色 */
+.black{color:#000000;}.red{color:red;}.white{color:white;}.g3{color:#333333;}.g6{color:#666666;}.g9{color:#999999;}
+.bk-white {background-color: white;}
+/* 透明度 */
+.o0 {opacity: 0;}.o1 {opacity: 1 !important;}
+/* 字体大小 */
+.f0{font-size:0;}.f10{font-size:10px;}.f12{font-size:12px;}.f13{font-size:13px;}.f14{font-size:14px;}.f16{font-size:16px;}.f18{font-size:18px;}.f20{font-size:20px;}.f24{font-size:24px;}
+/* 定位 */
+.rel{position:relative;}.abs{position:absolute;}
+.hidden {overflow: hidden;}
+/* 
+ *  flex容器类
+ */
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.container--row {flex-direction: row;}
+.container--row-reverse {flex-direction: row-reverse;}
+.container--start {justify-content: flex-start;}
+.container--center {justify-content: center;}
+.container--wrap {flex-wrap: wrap;}
+.container--no-stretch {height: auto;}
+.container--align-top {align-self: flex-start;}
+.container--align-bottom {align-self: flex-end;}
+.full {width: 100% !important;}
+.flex-1 {flex: 1;} 
+/* 小程序专用 */
+view,
+text {
+  font-size: 14px;
+}
+radio,
+checkbox {
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  position:relative;
+  top:-1px;
+  left:2px;
+}
+/* 清除按钮 */
+.btn-clear::before,
+.btn-clear::after {
+  border: 0;
+}
+/* 额外 */
+.img-circle {border-radius: 50%;}
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.affix {position: fixed;}
+.strong {font-weight: 700}
+.pd-box {padding: 0 10px;}
+.icon-fix {font-size: 1.5em !important;}
+/* 特殊 */
+.hr {
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+  overflow: hidden;
+  border-style: inset;
+  border-width: 1px;
+  margin-top: 26rpx;
+  margin-bottom: 26rpx;
+  -webkit-transform: scaleY(0.5);
+          transform: scaleY(0.5);
+}
+.hr--lightgrey {
+  border-style: solid;
+  border-color: rgb(238, 238, 238);
+}

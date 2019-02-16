@@ -1,0 +1,35 @@
+/* components/popup/index.wxss */
+@import '../common/com.wxss';
+.popup-box {
+  padding: 40rpx;
+  background: white;
+  border-radius: 4px;
+  z-index: 2;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  min-width: 650rpx;
+  min-height: 200rpx;
+}
+.popup-box__tips {
+  font-size: 18px;
+}
+.popup-box__content--normal,
+.popup-box__content--scroll {
+  padding: 30rpx 0;
+  color: #666;
+  font-size: 16px;
+}
+.popup-box__content--scroll {
+  max-height: 380rpx;
+}
+.popup-box__confirm {
+  color: #3cc51f;
+  font-size: 16px;
+}
+.popup-box__cancel {
+  margin-right: 60rpx;
+  font-size: 16px;
+  color: #000000;
+}

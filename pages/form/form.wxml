@@ -1,0 +1,133 @@
+<!--pages/form/form.wxml-->
+<view>
+	<form bindsubmit="formSubmit">
+		<view class="form-group">
+			<block
+				wx:for="{{formElements}}"
+				wx:for-item="item"
+				wx:key="wx:key">
+				<!-- input -->
+				<view 
+					wx:if="{{item.type === 'text' || item.type === 'number' || item.type === 'idcard' || item.type === 'digit'}}"
+					class='input-group'>
+					<text class="title">{{item.title}}</text>
+	      			<input 
+	      				class="input"
+						type="{{item.type}}" 
+						name="{{item.name}}"
+						placeholder="{{item.placeholder}}" />
+				</view>
+				<!-- textarea -->
+				<view 
+					wx:if="{{item.type === 'textarea'}}"
+					class='textarea-group'>
+					<text class="title">{{item.title}}</text>
+	      			<textarea 
+	      				class="textarea"
+						type="{{item.type}}" 
+						name="{{item.name}}"
+						placeholder="{{item.placeholder}}">
+					</textarea>
+				</view>
+				<!-- radio -->
+				<view 
+					wx:if="{{item.type === 'radio'}}"
+					class="input-group">
+					<text class="title">{{item.title}}</text>
+					<radio-group
+						class="radio-group" 
+						name="{{item.name}}">
+					  <label 
+					  	wx:for="{{item.value}}"
+					  	wx:for-item="radio_item"
+					  	wx:key="wx:key"
+					  	class="radio">
+					    <radio 
+					    	value="{{radio_item.v}}"
+					    	checked="{{radio_item.checked}}" />
+					    {{radio_item.v}}
+					  </label>
+					</radio-group>
+				</view>
+				<!-- checkbox -->
+				<view 
+					wx:if="{{item.type === 'checkbox'}}"
+					class="input-group">
+					<text class="title">{{item.title}}</text>
+					<checkbox-group
+						class="checkbox-group" 
+						name="{{item.name}}">
+					  <label 
+					  	wx:for="{{item.value}}"
+					  	wx:for-item="checkbox_item"
+					  	wx:key="wx:key"
+					  	class="checkbox">
+					    <checkbox 
+					    	value="{{checkbox_item}}" />
+					    {{checkbox_item}}
+					  </label>
+					</checkbox-group>
+				</view>
+				<!-- upload -->
+				<block wx:if="{{item.type === 'file'}}">
+					<view class="upload-title">{{item.title}}</view>
+					<block
+						wx:for="{{upload_data}}"
+						wx:for-item="upload_item"
+						wx:for-index="upload_idx"
+						wx:key="wx:key">
+						<view wx:if="{{item.name === upload_item.name}}">
+							<uploader
+								id="{{upload_idx}}"
+								uploadPics="{{upload_item[item.name]}}"
+								bind:upload="uploadFiles"
+								bind:delete="delImg">
+							</uploader>
+						</view>
+					</block>
+				</block>
+				<!-- select -->
+				<view wx:if="{{item.type === 'select'}}">
+					<view class="select-title">{{item.title}}</view>
+					<block
+						wx:for="{{select_data}}"
+						wx:for-item="select_item"
+						wx:for-index="select_idx"
+						wx:key="wx:key">
+						<block wx:if="{{item.name === select_item.name}}">
+							<picker 
+								id="{{select_idx}}"
+								class="inb"
+								bindchange="selectChange"
+								range="{{select_item[item.name]}}">
+							    <view>{{select_item[item.name][select_item.index]}}</view>
+							</picker>
+						</block>
+					</block>
+				</view>
+				<!-- address -->
+				<view wx:if="{{item.type === 'address'}}">
+					<view class="select-title">{{item.title}}</view>
+					<block
+						wx:for="{{address_data}}"
+						wx:for-item="address_item"
+						wx:for-index="address_idx"
+						wx:key="wx:key">
+						<block wx:if="{{item.name === address_item.name}}">
+							<picker 
+								mode="multiSelector" 
+								bindchange="multiChange" 
+								bindcolumnchange="multiColumnChange"
+								range="{{address_item[item.name]}}">
+							    <view class="picker">请选择</view>
+							</picker>
+						</block>
+					</block>
+				</view>
+			</block>
+		</view>
+		<button 
+			form-type="submit"
+			style="margin-top: 60rpx">按钮</button>
+	</form>
+</view>

@@ -1,0 +1,41 @@
+/* components/custom-picker/index.wxss */
+@import '../common/transition.wxss';
+
+/* selector */
+.ko-selector {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: 0px -12px 75px 0px #e0dddd, 0px -30px 75px 0px #f1f2f3;
+  z-index: 2;
+  opacity: 0;
+}
+.ko-selector .picker-view {
+  height: 310rpx;
+  background: white;
+}
+.ko-selector .item {
+  font-size: 14px;
+  height: 38px;
+  line-height: 38px;
+  padding-left: 10px;
+  color: #FF9C00;
+}
+.ko-selector .confirm {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 16px;
+  letter-spacing: 1px;
+  padding-top: 5px;
+  padding-right: 9px;
+  z-index: 3;
+}
+.ko--selected {
+  border-top: 1px solid #F8F8F8;
+  border-bottom: 1px solid #F8F8F8;
+}
+.layer {
+  opacity: 0;
+}

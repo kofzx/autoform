@@ -1,0 +1,18 @@
+<!--components/popup/index.wxml-->
+<view class='custom-class popup-box container container--no-stretch' hidden='{{!isPopup}}'>
+  <view class='popup-box__tips container--align-top'>{{title}}</view>
+  <!-- 内容层：普通视图 -->
+  <view class='popup-box__content--normal container--align-top' wx:if='{{!scrollView}}'>
+    <slot />
+  </view>
+  <!-- 内容层：滚动视图 -->
+  <scroll-view class='popup-box__content--scroll align-top' scroll-y wx:else>
+    <slot name='scroll' />
+  </scroll-view>
+  <view class='container container--align-bottom container--row-reverse'>
+    <text class='popup-box__confirm' bindtap='onConfirm'>{{confirmText}}</text>
+    <text class='popup-box__cancel' wx:if='{{isCancel}}' bindtap='onCancel'>{{cancelText}}</text>
+  </view>
+</view>
+<!-- 遮罩层 -->
+<layer show='{{isPopup}}' />

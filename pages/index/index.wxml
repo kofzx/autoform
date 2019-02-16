@@ -1,0 +1,28 @@
+<!--index.wxml-->
+<scroll-tabbar
+  category="{{category}}"
+  id-field="id"
+  title-field="title"
+  bind:click="onClick">    
+</scroll-tabbar>
+<!-- 列表 -->
+<view class="l-center">
+    <view class="l-news-list">
+        <view 
+        	class="l-news-list__li"
+        	wx:for="{{news}}"
+			wx:key="wx:key">
+            <navigator 
+            	class="l-news-bor"
+            	hover-class='none'>
+                <view class="l-news-bor-w">
+                    <view class="l-news-tit">{{item.title}}</view>
+                    <view class="l-news-time">发布时间：{{item.time}}</view>
+                </view>
+                <view class="l-news-bor-img">
+                    <image src="{{item.pic}}"></image>
+                </view>
+            </navigator>
+        </view>
+    </view>
+</view>

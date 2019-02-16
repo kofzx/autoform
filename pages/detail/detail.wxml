@@ -1,0 +1,11 @@
+<!--pages/detail/detail.wxml-->
+<view class="l-news-details bk-white">
+    <view class="l-center">
+        <view class="l-news-dtl-titb">
+            <view class="l-news-dtl-t">title</view>
+            <view class="l-news-dtl-time">发布时间：2019-02-14</view>
+        </view>
+        <view class="l-news-dtl-word">description</view>
+    </view>
+</view>	
+<button class="main-btn main-btn--position btn-clear fr" size="mini">前往报名</button>

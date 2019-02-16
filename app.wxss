@@ -1,0 +1,10 @@
+/**app.wxss**/
+@import './style/com.wxss';
+
+.l-center {
+	margin: 0 2%;
+}
+.main-btn {
+	background: lightpink;
+	color: white;
+}

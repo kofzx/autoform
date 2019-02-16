@@ -1,0 +1,190 @@
+{
+	"category": [
+		{
+			"id": 0,
+			"title": "测试1"
+		},
+		{
+			"id": 1,
+			"title": "测试1"
+		},
+		{
+			"id": 2,
+			"title": "测试2"
+		},
+		{
+			"id": 3,
+			"title": "测试3"
+		},
+		{
+			"id": 4,
+			"title": "测试4"
+		},
+		{
+			"id": 5,
+			"title": "测试5"
+		},
+		{
+			"id": 6,
+			"title": "测试6"
+		}
+	],
+	"news": [
+		{
+			"title": "标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题",
+			"time": "2019-02-14",
+			"pic": "https://pguanjiacn-3.oss-cn-qingdao.aliyuncs.com/Upload/image/2019-01-25/5c4aada46ab0f.jpg"
+		},
+		{
+			"title": "标题",
+			"time": "2019-02-14",
+			"pic": "https://pguanjiacn-3.oss-cn-qingdao.aliyuncs.com/Upload/image/2019-01-25/5c4aada46ab0f.jpg"
+		},
+		{
+			"title": "标题",
+			"time": "2019-02-14",
+			"pic": "https://pguanjiacn-3.oss-cn-qingdao.aliyuncs.com/Upload/image/2019-01-25/5c4aada46ab0f.jpg"
+		},
+		{
+			"title": "标题",
+			"time": "2019-02-14",
+			"pic": "https://pguanjiacn-3.oss-cn-qingdao.aliyuncs.com/Upload/image/2019-01-25/5c4aada46ab0f.jpg"
+		},
+		{
+			"title": "标题",
+			"time": "2019-02-14",
+			"pic": "https://pguanjiacn-3.oss-cn-qingdao.aliyuncs.com/Upload/image/2019-01-25/5c4aada46ab0f.jpg"
+		},
+		{
+			"title": "标题",
+			"time": "2019-02-14",
+			"pic": "https://pguanjiacn-3.oss-cn-qingdao.aliyuncs.com/Upload/image/2019-01-25/5c4aada46ab0f.jpg"
+		},
+		{
+			"title": "标题",
+			"time": "2019-02-14",
+			"pic": "https://pguanjiacn-3.oss-cn-qingdao.aliyuncs.com/Upload/image/2019-01-25/5c4aada46ab0f.jpg"
+		},
+		{
+			"title": "标题",
+			"time": "2019-02-14",
+			"pic": "https://pguanjiacn-3.oss-cn-qingdao.aliyuncs.com/Upload/image/2019-01-25/5c4aada46ab0f.jpg"
+		},
+		{
+			"title": "标题",
+			"time": "2019-02-14",
+			"pic": "https://pguanjiacn-3.oss-cn-qingdao.aliyuncs.com/Upload/image/2019-01-25/5c4aada46ab0f.jpg"
+		},
+		{
+			"title": "标题",
+			"time": "2019-02-14",
+			"pic": "https://pguanjiacn-3.oss-cn-qingdao.aliyuncs.com/Upload/image/2019-01-25/5c4aada46ab0f.jpg"
+		}
+	],
+	"formElements": [
+	  {
+	    "type": "text",
+	    "title": "姓名：",
+	    "name": "user",
+	    "placeholder": "请输入你的姓名",
+	    "isnull": false
+	  },
+	  {
+	    "type": "text",
+	    "title": "姓名：",
+	    "name": "user2",
+	    "placeholder": "请输入你的姓名",
+	    "isnull": false
+	  },
+	  {
+	    "type": "textarea",
+	    "title": "简介：",
+	    "name": "textarea",
+	    "placeholder": "请输入你的简介",
+	    "isnull": false
+	  },
+	  {
+	    "type": "radio",
+	    "title": "单选：",
+	    "name": "radio1",
+	    "value": [
+	      {
+	        "v": "男",
+	        "checked": true
+	      },
+	      {
+	        "v": "女",
+	        "checked": false
+	      }
+	    ]
+	  },
+	  {
+	    "type": "file",
+	    "title": "上传Logo：",
+	    "name": "uploadPics2"
+	  },
+	  {
+	    "type": "checkbox",
+	    "title": "多选：",
+	    "name": "checkbox1",
+	    "value": ["值1", "值2"]
+	  },
+	  {
+	    "type": "file",
+	    "title": "上传Logo：",
+	    "name": "uploadPics1"
+	  },
+	  {
+		"type": "select",
+		"name": "selectArr1",
+		"title": "下拉框：",
+		"value": ["请选择", "默认"],
+		"isnull": false
+	  },
+	  {
+		"type": "select",
+		"name": "selectArr2",
+		"title": "下拉框2：",
+		"value": ["请选择2", "默认2"],
+		"isnull": false
+	  },
+	  {
+		"type": "address",
+		"name": "addressArr",
+		"title": "省市区：",
+		"value": [
+			{
+				"area_name": "北京",
+				"child": [
+					{
+						"area_name": "北京市",
+						"child": [
+							{
+								"area_name": "东城区",
+								"child": "",
+								"id": "110101",
+								"parent_id": "110100",
+								"type": "3"
+							},
+							{
+								"area_name": "西城区",
+								"child": "",
+								"id": "110102",
+								"parent_id": "110100",
+								"type": "3"
+							}
+						],
+						"id": "110100",
+						"parent_id": "110000",
+						"type": "2"
+					}
+				],
+				"id": "110000",
+				"parent_id": "0",
+				"type": "1"
+			}
+		],
+		"isnull": false
+	  }
+    ]
+}

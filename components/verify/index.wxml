@@ -1,0 +1,2 @@
+<!--components/code/code.wxml-->
+<view class="weui-vcode-btn {{!isCode ? 'fail' : ''}}" style='background: {{bkc}}' bindtap='getCode'>{{!init && !isCode ? t + 's' : '获取验证码'}}</view>

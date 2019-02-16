@@ -1,0 +1,50 @@
+/* components/card/card.wxss */
+@import '../../common/com.wxss';
+.nc-card {
+  width: 700rpx;
+  height: 316rpx;
+  box-sizing: border-box;
+  background: white;
+  border-radius: 4px 4px 2px 2px;
+  margin: 0 auto;
+  margin-bottom: 20rpx;
+}
+.nc-card__top {
+  padding: 28rpx 28rpx 34rpx;
+}
+.nc-card__top .avatar {
+  width: 110rpx;
+  height: 110rpx;
+  margin-right: 20rpx;
+}
+.nc-card__top .info-box {
+  position: relative;
+  top: 2px;
+}
+.nc-card__top .title {
+  font-size: 15px;
+}
+.nc-card__top .desc {
+  width: 520rpx;
+  color: #999;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-top: 12rpx;
+}
+.nc-card__bottom {
+  height: 108rpx;
+  border-top: 1px solid #f1f1f1;
+}
+.nc-card__bottom .little-box {
+  width: 100%;
+  height: 60rpx;
+}
+.nc-card__bottom .little-box__item:not(:last-child) {
+  border-right: 1px solid #f1f1f1;
+} 
+.nc-card__bottom .explain {
+  margin-left: 12rpx;
+  color: #323232;
+}

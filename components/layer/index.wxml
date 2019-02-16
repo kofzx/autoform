@@ -1,0 +1,5 @@
+<!--components/mask/mask.wxml-->
+<view 
+  class="mask custom-class" 
+  wx:if='{{show}}' 
+  bindtap='clickLayer'></view>

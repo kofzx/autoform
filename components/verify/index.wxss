@@ -1,0 +1,15 @@
+/* components/code/code.wxss */
+.weui-vcode-btn{
+  width: 200rpx;
+  height:2.58823529em;
+  line-height: 2.58823529em;
+  text-align: center;
+  vertical-align:middle;
+  display:inline-block;
+  font-size:14px;
+  background: #3cc51f;
+  color:#fff;
+  white-space:nowrap;
+  border-radius: 4px;
+}
+.weui-vcode-btn.fail {opacity: 0.3;}

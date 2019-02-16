@@ -1,0 +1,69 @@
+.ko-transition {
+  animation: .25s ease both;
+}
+.ko--fade-in {
+  animation-name: ko-fade-in;
+}
+.ko--fade-out {
+  animation-name: ko-fade-out;
+}
+.ko--slide-up {
+  transform: translate3d(0,0,0);
+  animation-name: ko-slide-up;
+}
+.ko--slide-down {
+  transform: translate3d(0,100%,0);
+  animation-name: ko-slide-down;
+}
+.ko--slide-in-up {
+  transform: translate3d(0,0,0);
+  animation-name: ko-slide-in-up;
+}
+.ko--slide-out-down {
+  transform: translate3d(0,100%,0);
+  animation-name: ko-slide-out-down;
+}
+@keyframes ko-fade-in {
+	from {
+		opacity: 0;
+	}
+  to {
+    opacity: 1;
+  }
+}
+@keyframes ko-fade-out {
+	from {
+		opacity: 1;
+	}
+  to {
+    opacity: 0;
+  }
+}
+@keyframes ko-slide-up {
+	from {
+		transform: translate3d(0,100%,0);
+	}
+}
+@keyframes ko-slide-down {
+	from {
+		transform: translate3d(0,0,0);
+	}
+}
+@keyframes ko-slide-in-up {
+	from {
+    opacity: 0;
+		transform: translate3d(0,100%,0);
+	}
+  to {
+    opacity: 1;
+  }
+}
+@keyframes ko-slide-out-down {
+	from {
+    opacity: 1;
+		transform: translate3d(0,0,0);
+	}
+  to {
+    opacity: 0;
+  }
+}

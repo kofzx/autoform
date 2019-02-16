@@ -1,0 +1,25 @@
+/* components/noticeBar/index.wxss */
+@import "../common/com.wxss";
+.swiper {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+}
+.swiper,
+.swiper-item {
+    height: 74rpx;
+}
+.swiper-item {
+    background-color: #2d2d2d;
+    opacity: .7;
+}
+.swiper-item__text {
+    position: relative;
+    width: 700rpx;
+    height: 100%;
+    line-height: 74rpx;
+    color: white;
+    font-size: 13px;
+    text-align: center;
+    margin: 0 auto;
+}

@@ -1,0 +1,16 @@
+<!--components/scrollTabbar/index.wxml-->
+<view class="outer">
+	<scroll-view
+		class="custom-class tabbar"
+	  	scroll-x="{{true}}"
+	  >
+	  <view
+	    class="tabbar-item {{currentId === item[idField] ? 'active' : ''}}"
+	    wx:for="{{category}}"
+	    wx:key="wx:key"
+	    id="{{item[idField]}}"
+	    bindtap="tapItem"
+	    >{{item[titleField]}}</view>
+	</scroll-view>
+</view>
+

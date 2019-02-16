@@ -1,0 +1,9 @@
+<!--components/business/auth/index.wxml-->
+<view class='scope-box container' hidden='{{!isScope}}'>
+  <view class='scope-box__info container container--row container--center'>
+    <image class='cry' src='{{authPic}}'></image>
+    <view class='txt'>{{title}}</view>
+  </view>
+  <button class='scope-box__auth-btn' open-type='getUserInfo' bindgetuserinfo="onGotUserInfo">{{authText}}</button>
+  <slot></slot>
+</view>

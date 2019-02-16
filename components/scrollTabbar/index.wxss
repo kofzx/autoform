@@ -1,0 +1,23 @@
+/* components/scrollTabbar/index.wxss */
+.outer {
+	height: 100rpx;
+}
+.tabbar {
+	box-shadow: 0 2px 6px 0 rgb(238, 238, 238);
+	position: fixed;
+	top: 0;
+	box-sizing: border-box;
+	height: 100rpx;
+	white-space: nowrap;
+	background: white;
+	/*text-align: center;*/
+}
+.tabbar-item {
+	display: inline-block;
+	padding: 36rpx 30rpx;
+	font-size: 12px;
+	color: rgb(179, 179, 179);
+}
+.tabbar-item.active {
+	color: lightpink;
+}
