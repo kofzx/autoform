@@ -182,6 +182,36 @@
 				"id": "110000",
 				"parent_id": "0",
 				"type": "1"
+			},
+			{
+				"area_name": "天津",
+				"child": [
+					{
+						"area_name": "天津市",
+						"child": [
+							{
+								"area_name": "和平区",
+								"child": "",
+								"id": "120101",
+								"parent_id": "120100",
+								"type": "3"
+							},
+							{
+								"area_name": "河东区",
+								"child": "",
+								"id": "120102",
+								"parent_id": "120100",
+								"type": "3"
+							}
+						],
+						"id": "120100",
+						"parent_id": "120000",
+						"type": "2"
+					}
+				],
+				"id": "120000",
+				"parent_id": "0",
+				"type": "1"
 			}
 		],
 		"isnull": false

@@ -115,10 +115,12 @@
 						wx:key="wx:key">
 						<block wx:if="{{item.name === address_item.name}}">
 							<picker 
+								id="{{address_idx}}"
 								mode="multiSelector" 
 								bindchange="multiChange" 
 								bindcolumnchange="multiColumnChange"
-								range="{{address_item[item.name]}}">
+								range="{{address_item[item.name]}}"
+								range-key="area_name">
 							    <view class="picker">请选择</view>
 							</picker>
 						</block>

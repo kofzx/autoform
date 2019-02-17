@@ -1,59 +1,23 @@
 // pages/form/form.js
 const util = require("../../utils/util");
 const Upload = require("../../utils/Upload");
+const NextLevel = require("../../utils/NextLevel");
 const pgjUrl = "https://www.puguanjiacn.com/api_uploadimage";
 const pgjOss = "https://pguanjiacn-3.oss-cn-qingdao.aliyuncs.com/";
-
-let new_obj = {};
-new_obj.data = {};
-
-const formElements = wx.getStorageSync("formElements");
-new_obj.data.formElements = formElements;
-
-let [upload_data, select_data, address_data] = [[], [], []];
-
-formElements.forEach((element, index) => {
-  const { type, id, name } = element;
-  if (type === "file") {
-    let obj = {};
-    obj.name = name;  // 动态数据名
-    obj[name] = []; // 动态设置数据
-
-    // 将有用信息写入 保存动态数据的数组
-    upload_data.push(obj);
-  } else if (type === "select") {
-    let obj = {};
-    obj.name = name;
-    obj.index = 0;
-    obj[name] = element.value; 
-
-    select_data.push(obj);
-  } else if (type === "address") {
-    let obj = {};
-    obj.name = name;
-    obj[name] = element.value; 
-
-    address_data.push(obj);
-  }
-});
-
-new_obj.data.upload_data = upload_data;
-new_obj.data.select_data = select_data;
-new_obj.data.address_data = address_data;
 
 let wx_obj = {
   /**
    * 页面的初始数据
    */
   data: {
-    uploadPics: [],  // 上传图片数组
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(this);
+    // console.log(this);
   },
 
   /*
@@ -110,7 +74,7 @@ let wx_obj = {
   },
 
   /*
-   * 单选picker事件
+   * 单列picker事件
   */
   selectChange(e) {
     const id = parseInt(e.currentTarget.id);  // 当前点击的select_data索引
@@ -128,6 +92,33 @@ let wx_obj = {
     });
   },
 
+  /*
+   * 多列picker选择事件
+  */
+  multiColumnChange(e) {
+    const id = parseInt(e.currentTarget.id);  // 当前点击的adress_data索引
+    const { column, value } = e.detail;
+    const address_data = this.data.address_data;
+    console.log(address_data);
+
+    address_data.forEach((v, index) => {
+      const name = v.name;
+
+      // 判断点击的个体
+      if (index === id) { 
+        const data =  address_data[id][name];
+
+        let newRegion = NextLevel.nextLevel(data, 'child', column, value);
+
+        if (newRegion) {
+          address_data[id][name] = newRegion;
+
+          this.setData({ address_data });
+        }
+      }
+    });
+  },
+
   formSubmit(e) {
     // console.log(e);
   },
@@ -139,5 +130,51 @@ let wx_obj = {
 
   }
 };
+
+let new_obj = {};
+new_obj.data = {};
+
+const formElements = wx.getStorageSync("formElements");
+
+if (formElements) {
+  new_obj.data.formElements = formElements;
+
+  let [upload_data, select_data, address_data] = [[], [], []];
+
+  formElements.forEach((element, index) => {
+    const { type, id, name } = element;
+    if (type === "file") {
+      let obj = {};
+      obj.name = name;  // 动态数据名
+      obj[name] = []; // 动态设置数据
+
+      // 将有用信息写入 保存动态数据的数组
+      upload_data.push(obj);
+    } else if (type === "select") {
+      let obj = {};
+      obj.name = name;
+      obj.index = 0;
+      obj[name] = element.value; 
+
+      select_data.push(obj);
+    } else if (type === "address") {
+      let obj = {};
+      obj.name = name;
+
+      let newRegion = NextLevel.regionInit(element.value, "child", 0);
+
+      obj[name] = newRegion; 
+
+      address_data.push(obj);
+    }
+  });
+
+  new_obj.data.upload_data = upload_data;
+  new_obj.data.select_data = select_data;
+  new_obj.data.address_data = address_data;
+
+}
+
+
 
 Page(util.deepObjectMerge(wx_obj, new_obj))
