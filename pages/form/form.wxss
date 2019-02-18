@@ -5,9 +5,60 @@
 	margin-top: 24rpx;
 	margin-bottom: 4rpx;
 }
+.upload-one {
+	width: 550rpx;
+	height: 330rpx;
+	border: 1px dashed #7C7C7C;
+	border-radius: 4px;
+	margin: 20rpx 0 20rpx 10rpx;
+	position:relative;
+	/* flex */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+}
+.upload-one .v,
+.upload-one .h {
+	display: block;
+	position: absolute;
+	background: #EEEEEE;
+}
+.upload-one .v {
+	width: 2px;
+	height: 198rpx;
+	left: 50%;
+	right: 0;
+	top: 50%;
+	margin-top: -99rpx;
+	margin-left: -1px;
+}
+.upload-one .h {
+	width: 198rpx;
+	height: 2px;
+	left: 50%;
+	top: 50%;
+	bottom: 0;
+	margin-left: -99rpx;
+	margin-top: -1px;
+}
+.upload-one image {
+	width: 100%;
+  	height: 100%;
+}
 .select-title {
 	display: inline-block;
 	margin-top: 12rpx;
 	margin-bottom: 8rpx;
 	margin-right: 30rpx;
+}
+.form-submit {
+	width: 700rpx;
+	height: 86rpx;
+	line-height: 86rpx;
+	background-color: rgb(9, 187, 7);
+	color: white;
+	font-size: 14px;
+	border-radius: 3px;
+	margin-top: 13px;
 }

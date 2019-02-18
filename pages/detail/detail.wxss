@@ -1,4 +1,6 @@
 /* pages/detail/detail.wxss */
+@import "../../libs/wxParse/wxParse.wxss";
+
 .l-news-dtl-titb {
     padding: 10px 0;
     border-bottom: 1px solid #c5c5c5;
@@ -23,6 +25,6 @@
     padding: 10px 0;
 }
 .main-btn--position {
-	margin-right: 2%;
-	margin-top: 16rpx;
+    margin-right: 2%;
+    margin-top: 16rpx;
 }

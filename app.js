@@ -1,14 +1,8 @@
 //app.js
-const Request = require("./utils/Request");
 const api = require("./api/api");
 
 App({
   onLaunch: function () {
-    // 获取表单格式数据
-    Request.get(api.data)
-      .then(res => {
-        wx.setStorageSync("formElements", res.formElements);
-      });
 
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
@@ -43,6 +37,8 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    weima_url: api.weima_url,
+    secret: "fc315ce7461606fb046be0f010f45297"
   }
 })

@@ -90,7 +90,7 @@
 	    "isnull": false
 	  },
 	  {
-	    "type": "text",
+	    "type": "number",
 	    "title": "姓名：",
 	    "name": "user2",
 	    "placeholder": "请输入你的姓名",
@@ -120,7 +120,12 @@
 	  },
 	  {
 	    "type": "file",
-	    "title": "上传Logo：",
+	    "title": "单图上传：",
+	    "name": "upload1"
+	  },
+	  {
+	    "type": "files",
+	    "title": "多图上传：",
 	    "name": "uploadPics2"
 	  },
 	  {
@@ -128,11 +133,6 @@
 	    "title": "多选：",
 	    "name": "checkbox1",
 	    "value": ["值1", "值2"]
-	  },
-	  {
-	    "type": "file",
-	    "title": "上传Logo：",
-	    "name": "uploadPics1"
 	  },
 	  {
 		"type": "select",
@@ -214,6 +214,12 @@
 				"type": "1"
 			}
 		],
+		"isnull": false
+	  },
+	  {
+		"type": "time",
+		"name": "date1",
+		"title": "日期：",
 		"isnull": false
 	  }
     ]

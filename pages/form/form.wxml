@@ -76,10 +76,34 @@
 						wx:for-item="upload_item"
 						wx:for-index="upload_idx"
 						wx:key="wx:key">
-						<view wx:if="{{item.name === upload_item.name}}">
-							<uploader
+						<block wx:if="{{item.name === upload_item.name}}">
+							<view 
 								id="{{upload_idx}}"
-								uploadPics="{{upload_item[item.name]}}"
+								class="upload-one"
+								bindtap="uploadFile">
+								<image 
+									wx:if="{{upload_item[item.name]}}"
+									src="{{upload_item[item.name]}}"></image>
+								<block wx:else>
+									<view class="v"></view>
+									<view class="h"></view>
+								</block>
+							</view>
+						</block>
+					</block>
+				</block>
+				<!-- multiUpload -->
+				<block wx:if="{{item.type === 'files'}}">
+					<view class="upload-title">{{item.title}}</view>
+					<block
+						wx:for="{{multi_upload_data}}"
+						wx:for-item="multi_upload_item"
+						wx:for-index="multi_upload_idx"
+						wx:key="wx:key">
+						<view wx:if="{{item.name === multi_upload_item.name}}">
+							<uploader
+								id="{{multi_upload_idx}}"
+								uploadPics="{{multi_upload_item[item.name]}}"
 								bind:upload="uploadFiles"
 								bind:delete="delImg">
 							</uploader>
@@ -134,10 +158,33 @@
 						</block>
 					</block>
 				</view>
+				<!-- time -->
+				<view wx:if="{{item.type === 'time'}}">
+					<view class="select-title">{{item.title}}</view>
+					<block
+						wx:for="{{date_data}}"
+						wx:for-item="date_item"
+						wx:for-index="date_idx"
+						wx:key="wx:key">
+						<block wx:if="{{item.name === date_item.name}}">
+							<picker 
+								id="{{date_idx}}"
+								class="inb"
+								mode="date" 
+								value="{{date}}" 
+								start="{{date_item.value}}" 
+								end="2030-01-01" 
+								bindchange="dateChange">
+							    <view class="picker">{{date_item.value}}</view>
+							</picker>
+						</block>
+					</block>
+				</view>
 			</block>
 		</view>
 		<button 
+			class="form-submit btn-clear"
 			form-type="submit"
-			style="margin-top: 60rpx">按钮</button>
+			style="margin-top: 60rpx">提交</button>
 	</form>
 </view>

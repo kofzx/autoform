@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/detail/detail",
-    "pages/form/form"
+    "pages/form/form",
+    "pages/victory/victory"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -3,26 +3,28 @@
   category="{{category}}"
   id-field="id"
   title-field="title"
-  bind:click="onClick">    
+  bind:click="cateClick">    
 </scroll-tabbar>
 <!-- 列表 -->
 <view class="l-center">
     <view class="l-news-list">
         <view 
         	class="l-news-list__li"
-        	wx:for="{{news}}"
+        	wx:for="{{activities}}"
 			wx:key="wx:key">
-            <navigator 
+            <view 
             	class="l-news-bor"
-            	hover-class='none'>
+                data-url="../detail/detail"
+                data-query="{{item}}"
+                bindtap="routeTo">
                 <view class="l-news-bor-w">
                     <view class="l-news-tit">{{item.title}}</view>
-                    <view class="l-news-time">发布时间：{{item.time}}</view>
+                    <view class="l-news-time">发布时间：{{item.update_time}}</view>
                 </view>
                 <view class="l-news-bor-img">
-                    <image src="{{item.pic}}"></image>
+                    <image src="{{weima_url + item.img_sl}}"></image>
                 </view>
-            </navigator>
+            </view>
         </view>
     </view>
 </view>

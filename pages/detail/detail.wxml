@@ -2,10 +2,18 @@
 <view class="l-news-details bk-white">
     <view class="l-center">
         <view class="l-news-dtl-titb">
-            <view class="l-news-dtl-t">title</view>
-            <view class="l-news-dtl-time">发布时间：2019-02-14</view>
+            <view class="l-news-dtl-t">{{detail.title}}</view>
+            <view class="l-news-dtl-time">发布时间：{{detail.update_time}}</view>
         </view>
-        <view class="l-news-dtl-word">description</view>
+        <view class="l-news-dtl-word">
+        	<import src="../../libs/wxParse/wxParse.wxml"/>
+        	<template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+        </view>
     </view>
 </view>	
-<button class="main-btn main-btn--position btn-clear fr" size="mini">前往报名</button>
+<button 
+	class="main-btn main-btn--position btn-clear fr" 
+	size="mini"
+	data-url="../form/form"
+	data-aid="{{detail.activity_id}}"
+	bindtap="goForm">前往报名</button>

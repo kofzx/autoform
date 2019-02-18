@@ -2,11 +2,10 @@ class Upload {
 
 	/*
 	 * 选择图片
-	 * @private
-	 * @param maxUpload 最大上传数
 	 * @uploadPics 上传图片数组
+	 * @param maxUpload 最大上传数
 	*/
-	static chooseImg(maxUpload = 1, uploadPics) {
+	static chooseImg(uploadPics, maxUpload = 1) {
 		const length = uploadPics.length;
 		return new Promise(resolve => {
 			wx.chooseImage({
@@ -23,12 +22,13 @@ class Upload {
 	 * @param url  开发者服务器
 	 * @param filePath 图片临时路径
 	 * @param formData 传给后台的额外参数
+	 * @param name 文件上传名
 	*/
-	static uploadOne(url, filePath, formData = null) {
+	static uploadOne(url, filePath, formData = null, name = "aaa") {
 	  return new Promise((resolve, reject) => {
 	    wx.uploadFile({
 	      url, filePath, 
-	      name: "aaa",
+	      name,
 	      header: {
 	        'content-type': 'multipart/form-data'
 	      },
@@ -38,6 +38,9 @@ class Upload {
 	      },
 	      fail: err => {
 	        reject(err);
+	      },
+	      complete: e => {
+	      	wx.hideLoading();
 	      }
 	    })
 	  });
@@ -52,7 +55,7 @@ class Upload {
 	 * @param _index 开始上传的序号
 	 * @param _successFiles 已上传成功的文件
 	*/
-	static _uploadMult(url, tempFilePaths, callback, _index = 0, _successFiles = []) {
+	static _uploadMult(url, tempFilePaths, name, callback, _index = 0, _successFiles = []) {
 		wx.showLoading({
 	    	title: '上传中',
 	    	mask: true
@@ -60,7 +63,7 @@ class Upload {
 		wx.uploadFile({
 		    url,
 		    filePath: tempFilePaths[_index],
-		    name: 'aaa',
+		    name,
 		    header: {
 		      "Content-Type": "multipart/form-data"
 		    },
@@ -88,15 +91,16 @@ class Upload {
 	 * @param url 开发者服务器
 	 * @param uploadPics 上传图片列表
 	 * @param maxUpload 最大上传数
+	 * @param name 文件上传名
 	 * @param callback 回调函数
 	*/
-	static uploadMult(url, uploadPics, maxUpload, callback) {
+	static uploadMult(url, uploadPics, maxUpload, name = "aaa", callback) {
 	  	const length = uploadPics.length;
 		if (length < maxUpload) {
-			Upload.chooseImg(maxUpload, uploadPics)
+			Upload.chooseImg(uploadPics, maxUpload)
 				.then(res => {
 					const tempFilePaths = res.tempFilePaths;
-					Upload._uploadMult(url, tempFilePaths, callback);
+					Upload._uploadMult(url, tempFilePaths, name, callback);
 				});
 		} else {
 			wx.showToast({
