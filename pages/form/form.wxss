@@ -62,3 +62,9 @@
 	border-radius: 3px;
 	margin-top: 13px;
 }
+.mark {
+	position: relative;
+	left: -5px;
+	top: 2px;
+	color: red;
+}

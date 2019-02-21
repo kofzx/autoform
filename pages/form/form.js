@@ -23,7 +23,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        const aid = Route.decodeData(options.data);
+        const aid = options.aid;
 
         new Toast();
 
@@ -37,6 +37,7 @@ Page({
         Request.post(api.form, {
             id: activity_id
         }).then(res => {
+            console.log(res);
             const formElements = res;
 
             if (formElements) {
@@ -276,6 +277,22 @@ Page({
         });
     },
 
+    checkForm(checkArray) {
+        const formElements = this.data.formElements;
+        const validateArr = formElements.filter(element => !element.isnull);
+
+        for (let i = 0; i < validateArr.length; i++) {
+            const element = validateArr[i];
+
+            if (!checkArray[element.name] || checkArray[element.name] === "请选择") {
+                this.$toast(`${element.title}不为空`, false);
+                return true;
+            }
+        }  
+
+        return false;
+    },
+
     formSubmit(e) {
         const formElements = this.data.formElements;
         const {upload_data, select_data, address_data, date_data} = 
@@ -313,7 +330,12 @@ Page({
             submit_obj[name] = value;
         });
 
-        Request.post(api.form_submit, Object.assign(e.detail.value, submit_obj))
+        const submit_data = Object.assign(e.detail.value, submit_obj);
+        if (this.checkForm(submit_data)) {
+            return;
+        }
+
+        Request.post(api.form_submit, submit_data)
             .then(res => {
                 const { code, msg } = res;
 

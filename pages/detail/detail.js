@@ -27,7 +27,9 @@ Page({
   goForm(e) {
     const { url, aid } = e.currentTarget.dataset;
 
-    Route.routeTo(url, aid);
+    wx.navigateTo({
+      url: `${url}?aid=${aid}`
+    });
   },
 
   /**

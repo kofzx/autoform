@@ -1,6 +1,6 @@
 {
   "usingComponents": {
   	"scroll-tabbar": "/components/scrollTabbar/index",
-  	"loading": "/components/loading/index"
+  	"load-more": "/components/load-more/index"
   }
 }

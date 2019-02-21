@@ -10,6 +10,9 @@
 				<view 
 					wx:if="{{item.type === 'text' || item.type === 'number' || item.type === 'idcard' || item.type === 'digit'}}"
 					class='input-group'>
+					<text 
+						wx:if="{{!item.isnull}}"
+						class="mark">*</text>
 					<text class="title">{{item.title}}</text>
 	      			<input 
 	      				class="input"
@@ -21,6 +24,10 @@
 				<view 
 					wx:if="{{item.type === 'textarea'}}"
 					class='textarea-group'>
+					<text 
+						wx:if="{{!item.isnull}}"
+						class="mark"
+						style="align-self: flex-start">*</text>
 					<text class="title">{{item.title}}</text>
 	      			<textarea 
 	      				class="textarea"
@@ -70,7 +77,12 @@
 				</view>
 				<!-- upload -->
 				<block wx:if="{{item.type === 'file'}}">
-					<view class="upload-title">{{item.title}}</view>
+					<view class="upload-title">
+						<text 
+							wx:if="{{!item.isnull}}"
+							class="mark">*</text>
+						<text>{{item.title}}</text>
+					</view>
 					<block
 						wx:for="{{upload_data}}"
 						wx:for-item="upload_item"
@@ -112,7 +124,12 @@
 				</block>
 				<!-- select -->
 				<view wx:if="{{item.type === 'select'}}">
-					<view class="select-title">{{item.title}}</view>
+					<view class="select-title">
+						<text 
+							wx:if="{{!item.isnull}}"
+							class="mark">*</text>
+						<text>{{item.title}}</text>
+					</view>
 					<block
 						wx:for="{{select_data}}"
 						wx:for-item="select_item"

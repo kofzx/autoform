@@ -6,75 +6,80 @@ const Route = require("../../utils/Route");
 //获取应用实例
 const app = getApp()
 
+let loadMoreView, curPage;
+
 Page({
   data: {
     weima_url: app.globalData.weima_url,
     activities: [],
-    isReachLastPage: false,
-    isReachBottom: false,
-    curPage: 1,
-    catActive: 0,
-    isLoading: false,
-    showNoMore: false
+    cat_active: 0,  // 激活分类id
   },
 
   onLoad: function (options) {
-  	// 获取分类数据
+    curPage = 0;
+
+    loadMoreView = this.selectComponent("#loadMoreView");
+
+  	this.getCategories();
+  },
+
+  /*
+   * 获取分类数据
+  */
+  getCategories() {
     Request.get(api.category)
-    	.then(res => {
-        console.log(res);
+      .then(res => {
+        const cid = res[0].id;
 
-        const id = res[0].id;
-
-        this.getActivities(id)
-          .then(res => {
-
-            this.setData({
-              activities: res,
-              catActive: id
-            });
-          });
+        this.loadActivities(cid);
 
         this.setData({
           category: res
         });
-    	});
+      });
   },
 
   /*
-   * 获取活动列表
+   * 加载活动列表
+   * @param cid 分类id
   */
-  getActivities(cid, page = 1) {
-    return new Promise((resolve, reject) => {
-      Request.post(api.activities, {
-        cate: cid,
-        p: page
-      })
-        .then(res => {
-          resolve(res);
-        })
-        .catch(err => {
-          reject(err);
-        });
-    });
-  },
-
-  /*
-   * 点击分类事件
-  */
-  cateClick(data) {
-    const id = data.detail;
-
-    this.getActivities(id)
+  loadActivities(cid) {
+    Request.post(api.activities, {
+      cate: cid,
+      p: curPage
+    })
       .then(res => {
-        console.log(res);
+        let activities = this.data.activities;
+
+        if (curPage === 0) {
+          activities = res;
+        } else {
+          activities = activities.concat(res);
+        }
 
         this.setData({
-          activities: res,
-          catActive: id,
-          curPage: 1
+          activities,
+          cat_active: cid
         });
+
+        loadMoreView.loadMoreComplete(res);
+      })
+      .catch(err => {
+        if(curPage != 0) {
+          loadMoreView.loadMoreFail();
+        }
       });
+  },
+
+  /*
+   * 切换分类事件
+  */
+  cateSwitch(data) {
+    const cid = data.detail;
+
+    curPage = 0;
+
+    this.loadActivities(cid);
   },
 
   /*
@@ -87,39 +92,11 @@ Page({
   },
 
   onReachBottom () {
-    this.setData({ 
-      isLoading: true,
-      isReachBottom: true
-    });
-    let curPage = this.data.curPage;
+    loadMoreView.loadMore();
+  },
 
-    if (!this.data.isReachLastPage) {   // 当前不是最后一页
-      curPage++;
-
-      this.getActivities(this.data.catActive, curPage)
-        .then(res => {
-          if (res == null || res == 'undefined') {
-            this.setData({ 
-              isReachLastPage: true,
-              isLoading: false
-            });
-
-            if (this.data.isReachBottom) {
-              this.setData({ showNoMore: true });
-            }
-
-            this.setData({ isReachBottom: false });
-
-          } else {
-            const activities = this.data.activities.concat(res);
-
-            console.log(activities);
-            this.setData({ activities });
-          }
-        });
-
-      this.setData({ curPage });
-    }
-    this.setData({ isLoading: false });
+  loadMoreListener() {
+    curPage++;
+    this.loadActivities(this.data.cat_active);
   }
 })
