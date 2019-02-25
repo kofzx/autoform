@@ -50,6 +50,7 @@
 					  	wx:key="wx:key"
 					  	class="radio">
 					    <radio 
+					    	color="#f66732"
 					    	value="{{radio_item.v}}"
 					    	checked="{{radio_item.checked}}" />
 					    {{radio_item.v}}

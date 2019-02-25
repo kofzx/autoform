@@ -1,4 +1,5 @@
 // pages/detail/detail.js
+const Page = require("../../common/page");
 const Route = require("../../utils/Route");
 const WxParse = require("../../libs/wxParse/wxParse");
 
@@ -31,11 +32,4 @@ Page({
       url: `${url}?aid=${aid}`
     });
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

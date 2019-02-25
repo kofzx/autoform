@@ -1,4 +1,6 @@
 // pages/form/victory/victory.js
+const Page = require("../../common/page");
+
 Page({
 
   /**
@@ -22,13 +24,4 @@ Page({
       url: `${url}`
     });
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    return {
-      imageUrl: '../../../images/cai_logo.png'
-    }
-  }
 })

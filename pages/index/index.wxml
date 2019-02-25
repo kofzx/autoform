@@ -1,5 +1,6 @@
 <!--index.wxml-->
 <scroll-tabbar
+  class="scroll-tabbar"
   category="{{category}}"
   id-field="id"
   title-field="title"

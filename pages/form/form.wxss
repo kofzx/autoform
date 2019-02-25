@@ -56,7 +56,7 @@
 	width: 700rpx;
 	height: 86rpx;
 	line-height: 86rpx;
-	background-color: rgb(9, 187, 7);
+	background-color: #f66732;
 	color: white;
 	font-size: 14px;
 	border-radius: 3px;

@@ -10,7 +10,8 @@ const api = {
 	"activities": weima_url + "/api_match",
 	"upload": weima_url + "/api_upload",
 	"form": weima_url + "/api_form",
-	"form_submit": weima_url + "/api_submit"
+	"form_submit": weima_url + "/api_submit",
+	"openid": weima_url + "/api_userkey.html"
 };
 
 module.exports = api;

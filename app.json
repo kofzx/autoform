@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/authorize/authorize",
     "pages/index/index",
     "pages/detail/detail",
     "pages/form/form",
@@ -7,8 +8,8 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#f66732",
+    "navigationBarTitleText": "微马",
+    "navigationBarTextStyle": "white"
   }
 }

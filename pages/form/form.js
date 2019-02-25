@@ -1,4 +1,5 @@
 // pages/form/form.js
+const Page = require("../../common/page");
 const util = require("../../utils/util");
 const Request = require("../../utils/Request");
 const api = require("../../api/api");
@@ -35,7 +36,8 @@ Page({
     */
     getFormElements(activity_id) {
         Request.post(api.form, {
-            id: activity_id
+            id: activity_id,
+            secret: app.globalData.secret
         }).then(res => {
             console.log(res);
             const formElements = res;
@@ -330,7 +332,16 @@ Page({
             submit_obj[name] = value;
         });
 
-        const submit_data = Object.assign(e.detail.value, submit_obj);
+        const openid = wx.getStorageSync("openid");
+        const unionid = wx.getStorageSync("unionid");
+
+        const necessary_submit = {
+            secret: app.globalData.secret,
+            openid: openid,
+            unionid: unionid
+        };
+
+        const submit_data = Object.assign(e.detail.value, submit_obj, necessary_submit);
         if (this.checkForm(submit_data)) {
             return;
         }
@@ -352,11 +363,4 @@ Page({
                 }
             });
     },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function() {
-
-    }
 })

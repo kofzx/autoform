@@ -1,4 +1,5 @@
 //index.js
+const Page = require("../../common/page");
 const Request = require("../../utils/Request");
 const api = require("../../api/api");
 const Route = require("../../utils/Route");
@@ -27,7 +28,9 @@ Page({
    * 获取分类数据
   */
   getCategories() {
-    Request.get(api.category)
+    Request.get(api.category, {
+      secret: app.globalData.secret
+    })
       .then(res => {
         const cid = res[0].id;
 
@@ -46,7 +49,8 @@ Page({
   loadActivities(cid) {
     Request.post(api.activities, {
       cate: cid,
-      p: curPage
+      p: curPage,
+      secret: app.globalData.secret
     })
       .then(res => {
         let activities = this.data.activities;

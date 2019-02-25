@@ -5,6 +5,6 @@
 	margin: 0 2%;
 }
 .main-btn {
-	background: lightpink;
+	background: #f66732;
 	color: white;
 }

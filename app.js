@@ -13,6 +13,7 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        wx.setStorageSync('code', res.code);
       }
     })
     // 获取用户信息
@@ -39,6 +40,8 @@ App({
   globalData: {
     userInfo: null,
     weima_url: api.weima_url,
-    secret: "fc315ce7461606fb046be0f010f45297"
+    secret: "fc315ce7461606fb046be0f010f45297",
+    appId: 'wxf9b955096078a268',
+    appSecret: 'f0d617eda075cfc65ed411d48ec8b1b1'
   }
 })

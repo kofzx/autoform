@@ -2,15 +2,15 @@
 @import "../../components/common/removeScrollbar.wxss";
 
 .l-news-list .l-news-list__li {
-	padding: 10px 5px;
-	border-bottom: 1px solid #d3d3d3;
+    padding: 10px 5px;
+    border-bottom: 1px solid #d3d3d3;
 }
 .l-news-list .l-news-list__li:nth-last-child(1) {
-	border-bottom: 0;
+    border-bottom: 0;
 }
 .l-news-bor {
-	display: flex;
-	flex-direction: row-reverse;
+    display: flex;
+    flex-direction: row-reverse;
 }
 .l-news-bor-w{
     width: 69%;
@@ -21,8 +21,8 @@
     line-height: 1.5;
     max-width: 100%;
     height: 42px;
-	display: -webkit-box;
-  -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     overflow: hidden;
 }
@@ -38,6 +38,9 @@
     overflow: hidden;
 }
 .l-news-bor-img image {
-	width: 100px;
-	height: 66px;
+    width: 100px;
+    height: 66px;
+}
+.scroll-tabbar .tabbar-item.active {
+    color: #f66732;
 }
